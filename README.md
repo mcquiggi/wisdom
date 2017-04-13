@@ -1,7 +1,7 @@
 # wisdom
 
 Version 1.0
-Last modified 2016.04.13
+Last modified 2017.04.13
 
 To Do:
   Need to add proper headings, license and credit info to the program
