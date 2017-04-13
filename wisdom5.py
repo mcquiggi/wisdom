@@ -1,5 +1,3 @@
-#          # -*- coding: utf-8 -*-
-
 # Import the vocabulary and sentence pattern files:
 import vocabulary
 import patterns
