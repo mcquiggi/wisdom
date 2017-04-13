@@ -1,3 +1,5 @@
+#!/usr/local/bin/python
+
 # Import the vocabulary and sentence pattern files:
 import vocabulary
 import patterns
