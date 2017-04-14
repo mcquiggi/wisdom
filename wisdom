@@ -1,5 +1,21 @@
 #!/usr/local/bin/python
 
+#   "Wisdom": generate randomized sentences from a given vocabulary.  Current vocabulary and sentence
+#   structure is based on "new age" phrases.  Sentence patterns and vocabulary are defined in the
+#   two accompanying Python files.
+#
+#   This program is a conversion of the "New Age Bullshit Generator" by Seb Pearce:
+#       New Age Bullshit Generator
+#       © 2014-15 Seb Pearce (sebpearce.com)
+#
+#   The conversion to Python (from Javascript) was performed so that the utility can be used to 
+#   generate profound BS from the command line.  Unlike the Javascript version, this version sends 
+#   output to <stdout> where it can be saved/piped.  
+#
+#   Conversion by Kevin McQuiggin,  © K. McQuiggin, April 2017
+#
+#   Licensed under the MIT License.
+
 # Import the vocabulary and sentence pattern files:
 import vocabulary
 import patterns
@@ -11,13 +27,11 @@ import re
 import sys, getopt
 
 
-
 #*******************************************************************************
 #
 # A set of useful funtions.  Use the "regexp" module as necessary :-)
 #
 #*******************************************************************************
-
 
 # Capitalize first letter of string:
 def capitalizeFirstLetter(str):
@@ -73,22 +87,23 @@ def cleanSentence(sentence):
     return result
 
 
-
 #*******************************************************************************
 #
 # Support routines related to the main program
 #
 #*******************************************************************************
 
+# Choose a random vocabulary word, based on a given word type:
 def retrieveRandomWordOfType(type):
     rand=randomInt(len(vocabulary.bullshitWords[type]))
     return vocabulary.bullshitWords[type][rand]
 
-
+# Remove a given sentence pattern from the list of available sentence types:
 def removeSentenceFromPool(topic, el):
     if (el > -1):
         sentencePool[topic]=sentencePool[topic][0:el]+sentencePool[topic][el+1:]
 
+# Generate a set of sentences:
 def generateText(numberOfSentences, sentenceTopic):
     fullText=''
     i=0
@@ -102,6 +117,7 @@ def generateText(numberOfSentences, sentenceTopic):
     fullText=insertSpaceBetweenSentences(fullText)
     return fullText
 
+# Generate a single sentence on a particular topic:
 def generateSentence(topic):
     patternNumber=randomInt(len(sentencePool[topic]))
     try:
@@ -124,8 +140,6 @@ def generateSentence(topic):
     return result
 
 
-
-
 #*******************************************************************************
 #
 # Main program
@@ -134,6 +148,8 @@ def generateSentence(topic):
 
 def main(argv):
     global sentencePool
+
+    # Grab command line options:
     try:
         opts, args = getopt.getopt(argv,"hv",[])
     except getopt.GetoptError:
