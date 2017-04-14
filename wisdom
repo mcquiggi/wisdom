@@ -6,13 +6,13 @@
 #
 #   This program is a conversion of the "New Age Bullshit Generator" by Seb Pearce:
 #       New Age Bullshit Generator
-#       © 2014-15 Seb Pearce (sebpearce.com)
+#       Copyright 2014-15 Seb Pearce (sebpearce.com)
 #
 #   The conversion to Python (from Javascript) was performed so that the utility can be used to 
 #   generate profound BS from the command line.  Unlike the Javascript version, this version sends 
 #   output to <stdout> where it can be saved/piped.  
 #
-#   Conversion by Kevin McQuiggin,  © K. McQuiggin, April 2017
+#   Conversion by Kevin McQuiggin,  Copyright K. McQuiggin, April 2017
 #
 #   Licensed under the MIT License.
 
